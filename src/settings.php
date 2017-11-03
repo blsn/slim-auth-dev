@@ -26,13 +26,31 @@ return [
         'db' => [
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'skltn',
+            'database'  => 'slim_auth_dev',
             'username'  => 'root',
             'password'  => getenv('DB_PASSWORD'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
-        ]
+        ],
+
+        // Nette mail server access
+		'mailer' => [
+		    'host' 		=> getenv('MAIL_HOST'),
+            'username' 	=> getenv('MAIL_USERNAME'),
+            'password' 	=> getenv('MAIL_PASSWORD'),
+			'secure' 	=> getenv('MAIL_ENCRYPTION'),
+			'port' 		=> getenv('MAIL_PORT'),
+			
+			'context' =>  [ // SMTP, skip gmail certificate validation checks
+				'ssl' => [
+					'verify_peer' => false,
+					'verify_peer_name' => false,
+					'allow_self_signed' => true
+				]				
+			],
+		],
+		'baseUrl' => getenv('BASE_URL')
         
     ],
 ];
