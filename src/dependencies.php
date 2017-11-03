@@ -119,6 +119,11 @@ $container['flash'] = function () {
     return new \Slim\Flash\Messages();
 };
 
+// nette mail (SmtpMailer)
+$container['mailer'] = function($container) {
+	return new Nette\Mail\SmtpMailer($container['settings']['mailer']);
+};
+
 // middleware
 $app->add(new \App\Middleware\ValidationErrorsMiddleware($container));
 

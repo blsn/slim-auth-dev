@@ -64,8 +64,8 @@ class Auth
 }
 */
 
+/*
 use App\Models\User;
-
 class Auth 
 {
     public function user() { // user details user id
@@ -82,6 +82,41 @@ class Auth
     public function attempt($email, $password) { // authenticate signed in users
         $user = User::where('email', $email)->first(); // grab the user by email
         if (!$user) { // if !user return false
+            return false;
+        }
+        if (password_verify($password, $user->password)) { // verify password for that user
+            $_SESSION['user'] = $user->id; // set user id into session
+            return true;
+        }
+        return false;
+    }
+
+    public function logout() { // sign out
+        unset($_SESSION['user']);
+    }
+}
+*/
+
+use App\Models\User;
+class Auth 
+{
+    public function user() { // user details user id
+        if (isset($_SESSION['user'])) {
+            return User::find($_SESSION['user']);
+        }
+        return false;
+    }
+
+    public function check() { // is user authenticated (signed in), based on session stored in attempt(), used in navbar
+        return isset($_SESSION['user']);
+    }
+
+    public function attempt($email, $password) { // authenticate signed in users
+        $user = User::where('email', $email)->first(); // grab the user by email
+        if (!$user) { // if !user return false
+            return false;
+        }
+        if ($user->activ == 0) { // check if user account is active
             return false;
         }
         if (password_verify($password, $user->password)) { // verify password for that user
