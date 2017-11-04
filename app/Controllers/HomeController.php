@@ -144,14 +144,13 @@ class HomeController extends Controller // test elequent
     public function index($request, $response, $args) {
         //$this->flash->addMessage('danger', 'Test flash message'); // test flash message (replace with 'info' for testing)
         //$user = User::find(28); // query the table by id
-        $this->logger->info("My logger is now ready"); // show this log message when browser on homepage ...
-        return $this->view->render($response, 'index.twig', $args); // name in url path
-
         /**
         * example: show this email from db on homepage, also show the name of the signed-in user 
         * $user = User::where('email', 'my@email.com')->first(); // show this user on homepage (if exist on DB) ...
         * var_dump($user->email);
         * return $this->view->render($response, 'index.twig', array('u' => $user), $args); // name in DB of user
         */
+        $this->logger->info("My logger is now ready"); // show this log message when browser on homepage ...
+        return $this->view->render($response, 'index.twig', $args); // name in url path        
     }
 }
