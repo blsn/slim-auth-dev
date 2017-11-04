@@ -1,3 +1,3 @@
-# slim-auth-dev
-Slim Framework 3 Authentication:
-* Authorization with email confirmation
+# Slim Framework 3 Auth
+Development Application
+## With Confirm Email

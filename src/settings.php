@@ -16,7 +16,7 @@ return [
         // Twig settings        
         'view' => [
             'template_path' => __DIR__ . '/../resources/views/',
-            'twig' => [
+            'twig'          => [
                 'cache' => __DIR__ . '/../caches/',
                 'debug' => true,
             ],
@@ -26,8 +26,8 @@ return [
         'db' => [
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'slim_auth_dev',
-            'username'  => 'root',
+            'database'  => getenv('DB_DATABASE'),
+            'username'  => getenv('DB_USERNAME'),
             'password'  => getenv('DB_PASSWORD'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
@@ -36,16 +36,15 @@ return [
 
         // Nette mail server access
 		'mailer' => [
-		    'host' 		=> getenv('MAIL_HOST'),
+		    'host' 		=> 'smtp.gmail.com',
             'username' 	=> getenv('MAIL_USERNAME'),
             'password' 	=> getenv('MAIL_PASSWORD'),
-			'secure' 	=> getenv('MAIL_ENCRYPTION'),
-			'port' 		=> getenv('MAIL_PORT'),
-			
-			'context' =>  [ // SMTP, skip gmail certificate validation checks
+			'secure' 	=> 'tls',
+			'port' 		=> '587',			
+			'context'   =>  [ // SMTP, skip gmail certificate validation checks
 				'ssl' => [
-					'verify_peer' => false,
-					'verify_peer_name' => false,
+					'verify_peer'       => false,
+					'verify_peer_name'  => false,
 					'allow_self_signed' => true
 				]				
 			],
