@@ -148,7 +148,7 @@ class HomeController extends Controller // test elequent
         return $this->view->render($response, 'index.twig', $args); // name in url path
 
         /**
-        * example: find this email in db and show on homepage, also show the name of the signed-in user 
+        * example: show this email from db on homepage, also show the name of the signed-in user 
         * $user = User::where('email', 'my@email.com')->first(); // show this user on homepage (if exist on DB) ...
         * var_dump($user->email);
         * return $this->view->render($response, 'index.twig', array('u' => $user), $args); // name in DB of user
