@@ -16,7 +16,7 @@ class __TwigTemplate_9d0d94c5dc793d097d1247db374ccd245316afe2f91f7b3db0e9631711b
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "<nav class=\"navbar navbar-inverse\">
+        echo "<nav class=\"navbar navbar-default\">
   <div class=\"container-fluid\">
     <div class=\"navbar-header\">
       <a class=\"navbar-brand\" href=\"";
@@ -94,7 +94,7 @@ class __TwigTemplate_9d0d94c5dc793d097d1247db374ccd245316afe2f91f7b3db0e9631711b
 
     public function getSourceContext()
     {
-        return new Twig_Source("<nav class=\"navbar navbar-inverse\">
+        return new Twig_Source("<nav class=\"navbar navbar-default\">
   <div class=\"container-fluid\">
     <div class=\"navbar-header\">
       <a class=\"navbar-brand\" href=\"{{ path_for('home') }}\">WebSiteName</a>
